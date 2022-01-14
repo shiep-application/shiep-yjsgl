@@ -13,13 +13,10 @@ def index():
     return 'Hello Word'
 
 
-@app.route('/grade_query', methods=['GET'])
+@app.route('/grade_query', methods=['POST'])
 def grade_query():
-    # username = request.json.get("username").strip()
-    # password = request.json.get("password").strip()
-
-    username = request.args.get("username")
-    password= request.args.get("password")
+    username = request.json.get("username").strip()
+    password = request.json.get("password").strip()
 
     result = grade_query_service(username, password)
 
