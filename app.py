@@ -6,6 +6,7 @@ from service.grade_query import *
 
 
 app = Flask(__name__)
+custom_exception_handlers(app)
 
 
 @app.route('/')

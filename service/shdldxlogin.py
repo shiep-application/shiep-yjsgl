@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+from api_exception import *
 
 
 def shdldxlogin(username, password):
+
     # get请求统一身份验证页面
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4146.4 Safari/537.36'
@@ -35,6 +37,13 @@ def shdldxlogin(username, password):
         'Cookie': cookie
     }
     response = requests.post(ids_url, headers=headers1, data=data, allow_redirects=False)
+
+    # 处理账户名和密码错误问题
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # print(soup.find('span', id="msg").text)
+    if soup.find('span', id="msg"):
+        raise LOGIN_VALIDATION_FAILED
+
     cookies1 = response.cookies
     cookies = {}
     for cookie in cookies1:
