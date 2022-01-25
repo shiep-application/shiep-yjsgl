@@ -19,11 +19,9 @@ def lesson_query_service(username, password):
     # print(grade_query_url)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4146.4 Safari/537.36',
-        'Cookie': {
-            "iPlanetDirectoryPro": cookies["iPlanetDirectoryPro"],
-            ".ASPXAUTH": cookies[".ASPXAUTH"],
-            "__SINDEXCOOKIE__": cookies["__SINDEXCOOKIE__"]
-        }
+        'Cookie': "iPlanetDirectoryPro=" + cookies["iPlanetDirectoryPro"] +
+                  "; .ASPXAUTH=" + cookies[".ASPXAUTH"] +
+                  "; __SINDEXCOOKIE__=" + cookies["__SINDEXCOOKIE__"]
     }
     response = requests.post(grade_query_url, headers=headers, allow_redirects=False)
     # print(response.text)
@@ -52,11 +50,9 @@ def pj_query_service(username, password, bjid, jsbh):
     # print(grade_query_url)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4146.4 Safari/537.36',
-        'Cookie': {
-            "iPlanetDirectoryPro": cookies["iPlanetDirectoryPro"],
-            ".ASPXAUTH": cookies[".ASPXAUTH"],
-            "__SINDEXCOOKIE__": cookies["__SINDEXCOOKIE__"]
-        }
+        'Cookie': "iPlanetDirectoryPro=" + cookies["iPlanetDirectoryPro"] +
+                  "; .ASPXAUTH=" + cookies[".ASPXAUTH"] +
+                  "; __SINDEXCOOKIE__=" + cookies["__SINDEXCOOKIE__"]
     }
     response = requests.get(grade_query_url, headers=headers, allow_redirects=False)
     print(response.text)
@@ -84,13 +80,10 @@ def post_pj_service(username, password, bjid, jsbh, pj_json):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4146.4 Safari/537.36',
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Cookie': {
-            "iPlanetDirectoryPro": cookies["iPlanetDirectoryPro"],
-            ".ASPXAUTH": cookies[".ASPXAUTH"],
-            "__SINDEXCOOKIE__": cookies["__SINDEXCOOKIE__"],
-            "ASP.NET_SessionId": "",
-            "__LOGINCOOKIE__": "",
-        }
+        'Cookie': "iPlanetDirectoryPro=" + cookies["iPlanetDirectoryPro"] +
+                  "; .ASPXAUTH=" + cookies[".ASPXAUTH"] +
+                  "; __SINDEXCOOKIE__=" + cookies["__SINDEXCOOKIE__"] +
+                  "ASP.NET_SessionId=; __LOGINCOOKIE__=;"
     }
     data = urlencode(data)
     response = requests.post(grade_query_url, data=data, headers=headers, allow_redirects=False)

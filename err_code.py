@@ -3,6 +3,10 @@ LOGIN_VALIDATION_FAILED = {"err_code": 10002, "err_msg": "学号或密码错误"
 PJ_LESSON_QUERY_FAILED = {"err_code": 20001, "err_msg": "评教课程获取出错"}
 PJ_TABLE_QUERY_FAILED = {"err_code": 20002, "err_msg": "评教表单获取出错"}
 PJ_POST_FAILED = {"err_code": 20003, "err_msg": "评教提交出错"}
+DT_QUERY_FAILED = {"err_code": 30001, "err_msg": "动态查询出错"}
+DT_CITY_QUERY_FAILED = {"err_code": 30002, "err_msg": "动态城市查询出错"}
+DT_AREA_QUERY_FAILED = {"err_code": 30003, "err_msg": "动态区域查询出错"}
+DT_POST_FAILED = {"err_code": 30004, "err_msg": "动态提交出错"}
 
 
 class BussinessException:

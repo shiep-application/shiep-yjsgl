@@ -4,6 +4,7 @@ from flask import Flask
 from flask import request
 from service.grade_query import *
 from service.xpj import *
+from service.dtsq import *
 from err_code import *
 
 
@@ -59,7 +60,7 @@ def pj_table_query():
     return json.dumps(result)
 
 
-@app.route('/post_pj', methods=['POST'])
+@app.route('/pj_post', methods=['POST'])
 def post_pj():
     username = request.json.get("username").strip()
     password = request.json.get("password").strip()
@@ -75,6 +76,73 @@ def post_pj():
         raise ShdldxLOGIN_FAILED
     except Exception:
         raise PJ_POST_FAILED
+    return json.dumps(result)
+
+
+@app.route('/dt_query', methods=['POST'])
+def dt_query():
+    username = request.json.get("username").strip()
+    password = request.json.get("password").strip()
+
+    try:
+        result = dt_query_service(username, password)
+    except LOGIN_VALIDATION_FAILED:
+        raise LOGIN_VALIDATION_FAILED
+    except SHDLDX_LOGIN_FAILED:
+        raise ShdldxLOGIN_FAILED
+    except Exception:
+        raise DT_QUERY_FAILED
+    return json.dumps(result)
+
+
+@app.route('/dt_city_query', methods=['POST'])
+def city_query():
+    username = request.json.get("username").strip()
+    password = request.json.get("password").strip()
+    province_id = request.json.get("province_id").strip()
+
+    try:
+        result = city_query_service(username, password, province_id)
+    except LOGIN_VALIDATION_FAILED:
+        raise LOGIN_VALIDATION_FAILED
+    except SHDLDX_LOGIN_FAILED:
+        raise ShdldxLOGIN_FAILED
+    except Exception:
+        raise DT_CITY_QUERY_FAILED
+    return json.dumps(result)
+
+
+@app.route('/dt_area_query', methods=['POST'])
+def city_query():
+    username = request.json.get("username").strip()
+    password = request.json.get("password").strip()
+    city_id = request.json.get("city_id").strip()
+
+    try:
+        result = area_query_service(username, password, city_id)
+    except LOGIN_VALIDATION_FAILED:
+        raise LOGIN_VALIDATION_FAILED
+    except SHDLDX_LOGIN_FAILED:
+        raise ShdldxLOGIN_FAILED
+    except Exception:
+        raise DT_AREA_QUERY_FAILED
+    return json.dumps(result)
+
+
+@app.route('/dt_post', methods=['POST'])
+def city_query():
+    username = request.json.get("username").strip()
+    password = request.json.get("password").strip()
+    xc_json = request.json.get("xc_json").strip()
+
+    try:
+        result = post_xc_service(username, password, xc_json)
+    except LOGIN_VALIDATION_FAILED:
+        raise LOGIN_VALIDATION_FAILED
+    except SHDLDX_LOGIN_FAILED:
+        raise ShdldxLOGIN_FAILED
+    except Exception:
+        raise DT_POST_FAILED
     return json.dumps(result)
 
 
