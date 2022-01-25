@@ -8,7 +8,7 @@
 |  成绩查询               |         /grade_query          |
 |  获取所有需评教课程信息  |         /pj_lesson_query      |
 |  获取课程评教表          |        /pj_table_query       |
-|  提交评教               |        /post_pj              |
+|  提交评教               |        /pj_post              |
 |  学生动态查询           |        /dt_query              |
 |  动态城市查询           |        /dt_city_query         |
 |  动态区域查询           |        /dt_area_query         |
@@ -47,7 +47,7 @@
   * jsbh: 教师编号;
 
 #### 提交评教
-* url: /post_pj
+* url: /pj_post
 * 请求类型: POST
 * 接收参数: {"username": xxxxxxxxx, "password": xxxxxxxxxxx, "bjid": xxxxx, "jsbh": xxxx, "pj_json": xxxxxxx} <br>
   * username: 学号;

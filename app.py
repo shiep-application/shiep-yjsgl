@@ -61,7 +61,7 @@ def pj_table_query():
 
 
 @app.route('/pj_post', methods=['POST'])
-def post_pj():
+def pj_post():
     username = request.json.get("username").strip()
     password = request.json.get("password").strip()
     bjid = request.json.get("bjid").strip()
@@ -96,7 +96,7 @@ def dt_query():
 
 
 @app.route('/dt_city_query', methods=['POST'])
-def city_query():
+def dt_city_query():
     username = request.json.get("username").strip()
     password = request.json.get("password").strip()
     province_id = request.json.get("province_id").strip()
@@ -113,7 +113,7 @@ def city_query():
 
 
 @app.route('/dt_area_query', methods=['POST'])
-def city_query():
+def dt_area_query():
     username = request.json.get("username").strip()
     password = request.json.get("password").strip()
     city_id = request.json.get("city_id").strip()
@@ -130,7 +130,7 @@ def city_query():
 
 
 @app.route('/dt_post', methods=['POST'])
-def city_query():
+def dt_post():
     username = request.json.get("username").strip()
     password = request.json.get("password").strip()
     xc_json = request.json.get("xc_json").strip()
