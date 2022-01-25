@@ -11,7 +11,7 @@ def shdldxlogin(username, password):
     }
     ids_url = "http://ids.shiep.edu.cn/authserver/login?service=http://yjsgl.shiep.edu.cn/gmis5/oauthLogin/shdldxlogin"
     response = requests.post(ids_url, headers=headers)
-    cookie = response.headers['Set-Cookie'].split(";")[0]
+    cookie = response.headers['Set-Cookie'].split(";")[0]  # JSESSIONID_ids2
     # print(cookie)
     # print(response.status_code)
 

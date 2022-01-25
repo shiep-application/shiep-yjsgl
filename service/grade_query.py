@@ -1,7 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
 import datetime
-import json
 from service.shdldxlogin import *
 from api_exception import *
 
