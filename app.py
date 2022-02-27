@@ -5,6 +5,7 @@ from flask import request
 from service.grade_query import *
 from service.xpj import *
 from service.dtsq import *
+from service.kbcx import *
 
 
 app = Flask(__name__)
@@ -142,6 +143,22 @@ def dt_post():
         raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise DT_POST_FAILED
+    return json.dumps(result)
+
+
+@app.route('/kb_query', methods=['POST'])
+def pj_lesson_query():
+    username = request.json.get("username").strip()
+    password = request.json.get("password").strip()
+
+    try:
+        result = kb_query_service(username, password)
+    except LOGIN_VALIDATION_FAILED:
+        raise LOGIN_VALIDATION_FAILED
+    except SHDLDX_LOGIN_FAILED:
+        raise SHDLDX_LOGIN_FAILED
+    except Exception:
+        raise KB_QUERY_FAILED
     return json.dumps(result)
 
 
