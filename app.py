@@ -147,12 +147,13 @@ def dt_post():
 
 
 @app.route('/kb_query', methods=['POST'])
-def pj_lesson_query():
+def kb_query():
     username = request.json.get("username").strip()
     password = request.json.get("password").strip()
+    termcode = request.json.get("termcode").strip()
 
     try:
-        result = kb_query_service(username, password)
+        result = kb_query_service(username, password, termcode)
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
