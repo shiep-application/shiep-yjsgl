@@ -5,7 +5,6 @@ from flask import request
 from service.grade_query import *
 from service.xpj import *
 from service.dtsq import *
-from err_code import *
 
 
 app = Flask(__name__)
@@ -36,7 +35,7 @@ def pj_lesson_query():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise PJ_LESSON_QUERY_FAILED
     return json.dumps(result)
@@ -54,7 +53,7 @@ def pj_table_query():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise PJ_TABLE_QUERY_FAILED
     return json.dumps(result)
@@ -73,7 +72,7 @@ def pj_post():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise PJ_POST_FAILED
     return json.dumps(result)
@@ -89,7 +88,7 @@ def dt_query():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise DT_QUERY_FAILED
     return json.dumps(result)
@@ -106,7 +105,7 @@ def dt_city_query():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise DT_CITY_QUERY_FAILED
     return json.dumps(result)
@@ -123,7 +122,7 @@ def dt_area_query():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise DT_AREA_QUERY_FAILED
     return json.dumps(result)
@@ -140,7 +139,7 @@ def dt_post():
     except LOGIN_VALIDATION_FAILED:
         raise LOGIN_VALIDATION_FAILED
     except SHDLDX_LOGIN_FAILED:
-        raise ShdldxLOGIN_FAILED
+        raise SHDLDX_LOGIN_FAILED
     except Exception:
         raise DT_POST_FAILED
     return json.dumps(result)
